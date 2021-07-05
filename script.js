@@ -8,7 +8,6 @@ function Book( id, title, author ) {
   this.title = title;
   this.author = author;
 }
-let num_id = 1;
 
 function saveToLocalStorage(bookList) {
     localStorage.clear();
@@ -23,8 +22,7 @@ function getFromLocalStorage() {
 }
 add_btn.addEventListener('click', () => {
     let bookList = getFromLocalStorage();
-    let id = num_id;
-    num_id ++;
+    let id = Date.now();
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let book =new Book(id, title, author);
