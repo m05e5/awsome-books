@@ -53,15 +53,16 @@ function addBooks() {
     remove_btn.setAttribute('onclick', 'removeBook(' + book.id + ')');
     remove_btn.setAttribute('type', 'button');
     remove_btn.setAttribute('value', 'Remove');
+    const title_block = document.createElement('div')
     const title = document.createTextNode(book.title);
+    title_block.appendChild(title);
+    const author_block = document.createElement('div');
     const author = document.createTextNode(book.author);
-    li.appendChild(title);
-    li.appendChild(br);
-    li.appendChild(author);
-    li.appendChild(br);
+    author_block.appendChild(author);
+
+    li.appendChild(title_block);
+    li.appendChild(author_block);
     li.appendChild(remove_btn);
-    li.appendChild(br);
-    li.appendChild(br);
     li.appendChild(hr);
     books.appendChild(li);
   }
