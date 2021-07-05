@@ -19,6 +19,8 @@ function addBooks(bookList) {
     const li = document.createElement('li');
     const hr = document.createElement('hr');
     const removeBtn = document.createElement('input');
+    removeBtn.id = book.id;
+    removeBtn.className = 'remove-btn';
     removeBtn.setAttribute('onclick', `removeBook( ${book.id} )`);
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
@@ -59,8 +61,11 @@ addBtn.addEventListener('click', () => {
 
 function removeBook(id) {
   let bookList = getFromLocalStorage();
-  bookList = bookList.filter((book) => book.id !== id);
+  bookList = bookList.filter((book) => book.id !== Number(id));
   saveToLocalStorage(bookList);
 }
 
 addBooks(getFromLocalStorage());
+
+const removeBtns = document.querySelectorAll('remove-btn');
+removeBtns.forEach((btn) => btn.addEventListener('click', (ev) => removeBook(ev.target.id)));
