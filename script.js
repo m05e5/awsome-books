@@ -1,6 +1,11 @@
 
 const add_btn = document.getElementById('add');
-const book = Object.create( {} );
+// const book = Object.create( {} );
+function Book( id, title, author ) {
+  this.id = id;
+  this.title = title;
+  this.author = author;
+}
 let bookList = [
     {
       id: 1,
@@ -15,18 +20,28 @@ let bookList = [
 ];
 
 add_btn.addEventListener('click', () => {
-    book.id = bookList.length + 1;
-    book.title = document.getElementById('title').value;
-    book.author = document.getElementById('author').value;
+    let id = bookList.length + 1;
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let book =new Book(id, title, author);
     bookList.push(book);
+    console.log(bookList)
+    addBooks();
 })
 
 function removeBook(id) {
-  bookList = bookList.filter(book => book.id !== id)
+  bookList = bookList.filter(book => book.id != id);
+  addBooks();
 }
 
-const books = document.getElementById('books');
-for(let book of bookList ) {
+
+
+function addBooks() {
+  const books = document.getElementById('books');
+  const li_to_remove = document.querySelectorAll('li')
+  li_to_remove.forEach( (item) => {item.remove()})
+
+  for(let book of bookList ) {
     const li = document.createElement('li');
     const br = document.createElement('BR');
     const hr = document.createElement('hr');
@@ -46,3 +61,6 @@ for(let book of bookList ) {
     li.appendChild(hr);
     books.appendChild(li);
   }
+}
+
+addBooks();
