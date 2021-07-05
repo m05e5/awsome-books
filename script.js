@@ -28,11 +28,11 @@ add_btn.addEventListener('click', () => {
   bookList.push(book);
   saveToLocalStorage(bookList);
   addBooks();
-})
+});
 
 function removeBook(id) {
   let bookList = getFromLocalStorage();
-  bookList = bookList.filter(book => book.id != id);
+  bookList = bookList.filter(book => book.id !== id);
   saveToLocalStorage(bookList);
   addBooks();
 }
@@ -43,13 +43,13 @@ function addBooks() {
   const liToRemove = document.querySelectorAll('li');
   liToRemove.forEach((item) => {
     item.remove();
-  })
+  });
 
   for (const book of bookList) {
     const li = document.createElement('li');
     const hr = document.createElement('hr');
     const removeBtn = document.createElement('input');
-    removeBtn.setAttribute('onclick', 'removeBook(' + book.id + ')');
+    removeBtn.setAttribute('onclick', `removeBook( ${book.id}  )`);
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
     const titleBlock = document.createElement('div')
