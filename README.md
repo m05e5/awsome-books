@@ -38,10 +38,6 @@ Feel free to check the [issues page](https://github.com/m05e5/awsome-books/issue
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-- Project inspired by Gregoire Vella on Behance
-
 ## 📝 License
 
 This project is MIT Lisenced
