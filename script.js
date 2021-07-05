@@ -1,7 +1,7 @@
 
 const add_btn = document.getElementById('add');
 const book = Object.create( {} );
-const bookList = [
+let bookList = [
     {
       id: 1,
       title: 'lorem ipsu',
@@ -21,6 +21,28 @@ add_btn.addEventListener('click', () => {
     bookList.push(book);
 })
 
-const removeBook = (id) => {
+function removeBook(id) {
   bookList = bookList.filter(book => book.id !== id)
 }
+
+const books = document.getElementById('books');
+for(let book of bookList ) {
+    const li = document.createElement('li');
+    const br = document.createElement('BR');
+    const hr = document.createElement('hr');
+    const remove_btn = document.createElement('input');
+    remove_btn.setAttribute('onclick', 'removeBook(' + book.id + ')');
+    remove_btn.setAttribute('type', 'button');
+    remove_btn.setAttribute('value', 'Remove');
+    const title = document.createTextNode(book.title);
+    const author = document.createTextNode(book.author);
+    li.appendChild(title);
+    li.appendChild(br);
+    li.appendChild(author);
+    li.appendChild(br);
+    li.appendChild(remove_btn);
+    li.appendChild(br);
+    li.appendChild(br);
+    li.appendChild(hr);
+    books.appendChild(li);
+  }
