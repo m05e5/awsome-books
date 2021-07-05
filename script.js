@@ -1,4 +1,6 @@
-
+if(localStorage.getItem('data') === null){
+    localStorage.setItem('data', '[]');
+}
 const add_btn = document.getElementById('add');
 // const book = Object.create( {} );
 function Book( id, title, author ) {
@@ -6,37 +8,41 @@ function Book( id, title, author ) {
   this.title = title;
   this.author = author;
 }
-let bookList = [
-    {
-      id: 1,
-      title: 'lorem ipsu',
-      author: 'testeroo testyy'
-    },
-    { 
-      id: 2,
-      title: 'Second book',
-      author: 'testeroo testyy'
-    }
-];
+let num_id = 1;
 
+function saveToLocalStorage(bookList) {
+    localStorage.clear();
+    myList = JSON.stringify(bookList);
+    localStorage.setItem('data', myList);
+}
+
+function getFromLocalStorage() {
+    if(localStorage.getItem('data') !== null){
+        return JSON.parse(localStorage.getItem('data'));
+    }
+}
 add_btn.addEventListener('click', () => {
-    let id = bookList.length + 1;
+    let bookList = getFromLocalStorage();
+    let id = num_id;
+    num_id ++;
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let book =new Book(id, title, author);
     bookList.push(book);
-    console.log(bookList)
+    saveToLocalStorage(bookList);
     addBooks();
 })
-
 function removeBook(id) {
+  let bookList = getFromLocalStorage();
   bookList = bookList.filter(book => book.id != id);
+  saveToLocalStorage(bookList);
   addBooks();
 }
 
 
 
 function addBooks() {
+  let bookList = getFromLocalStorage();
   const books = document.getElementById('books');
   const li_to_remove = document.querySelectorAll('li')
   li_to_remove.forEach( (item) => {item.remove()})
