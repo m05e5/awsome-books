@@ -1,58 +1,28 @@
 if (localStorage.getItem('data') === null) {
   localStorage.setItem('data', '[]');
 }
-const add_btn = document.getElementById('add');
+
 function Book(id, title, author) {
   this.id = id;
   this.title = title;
   this.author = author;
 }
 
-function saveToLocalStorage(bookList) {
-  localStorage.clear();
-  myList = JSON.stringify(bookList);
-  localStorage.setItem('data', myList);
-}
-
-function getFromLocalStorage() {
-  if (localStorage.getItem('data') !== null) {
-    return JSON.parse(localStorage.getItem('data'));
-  }
-}
-add_btn.addEventListener('click', () => {
-  let bookList = getFromLocalStorage();
-  let id = Date.now();
-  let title = document.getElementById('title').value;
-  let author = document.getElementById('author').value;
-  let book = new Book(id, title, author);
-  bookList.push(book);
-  saveToLocalStorage(bookList);
-  addBooks();
-});
-
-function removeBook(id) {
-  let bookList = getFromLocalStorage();
-  bookList = bookList.filter(book => book.id !== id);
-  saveToLocalStorage(bookList);
-  addBooks();
-}
-
-function addBooks() {
-  let bookList = getFromLocalStorage();
+function addBooks(bookList) {
   const books = document.getElementById('books');
   const liToRemove = document.querySelectorAll('li');
   liToRemove.forEach((item) => {
     item.remove();
   });
 
-  for (const book of bookList) {
+  bookList.forEach((book) => {
     const li = document.createElement('li');
     const hr = document.createElement('hr');
     const removeBtn = document.createElement('input');
-    removeBtn.setAttribute('onclick', `removeBook( ${book.id}  )`);
+    removeBtn.setAttribute('onclick', `removeBook( ${book.id} )`);
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
-    const titleBlock = document.createElement('div')
+    const titleBlock = document.createElement('div');
     const title = document.createTextNode(book.title);
     titleBlock.appendChild(title);
     const authorBlock = document.createElement('div');
@@ -64,7 +34,33 @@ function addBooks() {
     li.appendChild(removeBtn);
     li.appendChild(hr);
     books.appendChild(li);
-  }
+  });
 }
 
-addBooks();
+function getFromLocalStorage() {
+  return JSON.parse(localStorage.getItem('data'));
+}
+
+function saveToLocalStorage(bookList) {
+  localStorage.setItem('data', JSON.stringify(bookList));
+  addBooks(getFromLocalStorage());
+}
+
+const addBtn = document.getElementById('add');
+addBtn.addEventListener('click', () => {
+  const bookList = getFromLocalStorage();
+  const id = Date.now();
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const book = new Book(id, title, author);
+  bookList.push(book);
+  saveToLocalStorage(bookList);
+});
+
+function removeBook(id) {
+  let bookList = getFromLocalStorage();
+  bookList = bookList.filter((book) => book.id !== id);
+  saveToLocalStorage(bookList);
+}
+
+addBooks(getFromLocalStorage());
