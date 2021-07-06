@@ -14,5 +14,15 @@ class BookList {
     this.bookTemplate.author = author;
     return this.bookTemplate;
   }
+
+  add(title, author) {
+    this.books.push(this.book(title, author));
+    this.save();
+  }
+
+  remove(id) {
+    this.books = this.books.filter((book) => book.id !== Number(id));
+    this.save();
+  }
 }
 
