@@ -8,7 +8,7 @@ function Book(id, title, author) {
   this.id = id;
   this.title = title;
   this.author = author;
-}git 
+}
 function addBooks(bookList) {
   const books = document.getElementById('books');
   const liToRemove = document.querySelectorAll('li');
