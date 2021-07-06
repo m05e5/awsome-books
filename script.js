@@ -4,11 +4,14 @@ if (localStorage.getItem('data') === null) {
 
 let bookList = [];
 
-function Book(id, title, author) {
-  this.id = id;
-  this.title = title;
-  this.author = author;
+class Book {
+  constructor(id, title, author) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+  }
 }
+
 function addBooks(bookList) {
   const books = document.getElementById('books');
   const liToRemove = document.querySelectorAll('li');
