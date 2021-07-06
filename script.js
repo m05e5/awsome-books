@@ -24,5 +24,13 @@ class BookList {
     this.books = this.books.filter((book) => book.id !== Number(id));
     this.save();
   }
+
+  save() {
+    localStorage.setItem('data', JSON.stringify(this.books));
+    this.updateView();
+  }
+  retrieve() {
+    this.books = JSON.parse(localStorage.getItem('data'));
+  }
 }
 
