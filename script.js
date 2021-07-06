@@ -67,3 +67,13 @@ class BookList {
   }
 }
 
+const bookList = new BookList();
+bookList.updateView();
+const addBtn = document.getElementById('add');
+addBtn.addEventListener('click', () => {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  bookList.add(title, author);
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+});
