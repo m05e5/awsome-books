@@ -2,6 +2,8 @@ if (localStorage.getItem('data') === null) {
   localStorage.setItem('data', '[]');
 }
 
+const bookList = [];
+
 function Book(id, title, author) {
   this.id = id;
   this.title = title;
