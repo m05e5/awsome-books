@@ -2,14 +2,13 @@ if (localStorage.getItem('data') === null) {
   localStorage.setItem('data', '[]');
 }
 
-const bookList = [];
+let bookList = [];
 
 function Book(id, title, author) {
   this.id = id;
   this.title = title;
   this.author = author;
-}
-
+}git 
 function addBooks(bookList) {
   const books = document.getElementById('books');
   const liToRemove = document.querySelectorAll('li');
@@ -52,7 +51,7 @@ function saveToLocalStorage(bookList) {
 
 const addBtn = document.getElementById('add');
 addBtn.addEventListener('click', () => {
-  const bookList = getFromLocalStorage();
+  bookList = getFromLocalStorage();
   const id = Date.now();
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
