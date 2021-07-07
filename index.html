@@ -8,18 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Awesome Books</h1>
-    <ul id="books">
+  <div class="awesome-book">
+    <h1>All awesome Books</h1>
+    <ul id="books" class="books">
       
     </ul>
     <br><br>
-      <input type="text" name="title" id="title" placeholder="Title">
+    <div class="form">
+      <h2>Add a new book</h2>
+      <input type="text" class="input" name="title" id="title" placeholder="Title">
       <br>
       <br>
-      <input type="text" name='author' id="author" placeholder="Author">
+      <input type="text" class="input" name='author' id="author" placeholder="Author">
       <br>
       <br>
       <input type="button" id="add" value="add">
+    </div>
+     
+  </div>
     <script src="script.js"></script>
 </body>
 </html>

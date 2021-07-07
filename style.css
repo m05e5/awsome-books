@@ -2,4 +2,36 @@ ul {
   list-style-type: none;
   padding: 1px;
   margin: 1px;
+  border: 2px solid black;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.awesome-book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.books {
+  width: 30%;
+}
+
+.form {
+  float: right;
+}
+
+.input {
+  border: 2px solid black;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
 }

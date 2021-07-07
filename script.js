@@ -22,7 +22,6 @@ function updateView() {
   });
   bookList.books.forEach((book) => {
     const li = document.createElement('li');
-    const hr = document.createElement('hr');
     const removeBtn = document.createElement('input');
     removeBtn.id = book.id;
     removeBtn.className = 'remove-btn';
@@ -33,16 +32,13 @@ function updateView() {
     });
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
-    const titleBlock = document.createElement('div');
+    const bookBlock = document.createElement('div');
     const title = document.createTextNode(book.title);
-    titleBlock.appendChild(title);
-    const authorBlock = document.createElement('div');
     const author = document.createTextNode(book.author);
-    authorBlock.appendChild(author);
-    li.appendChild(titleBlock);
-    li.appendChild(authorBlock);
+    bookBlock.appendChild(title);
+    bookBlock.appendChild(author);
+    li.appendChild(bookBlock);
     li.appendChild(removeBtn);
-    li.appendChild(hr);
     books.appendChild(li);
   });
 }
