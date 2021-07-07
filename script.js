@@ -1,31 +1,15 @@
-if (localStorage.getItem('data') === null) {
-  localStorage.setItem('data', '[]');
-}
-
 class BookList {
   constructor() {
-    this.bookTemplate = {};
     this.books = [];
   }
 
-  book(title, author) {
-    this.bookTemplate.id = Date.now();
-    this.bookTemplate.title = title;
-    this.bookTemplate.author = author;
-    return this.bookTemplate;
-  }
-
   add(title, author) {
-    this.books.push(this.book(title, author));
-    save();
+    this.books = this.books.concat({ id: Date.now(), title, author });
   }
 
   remove(id) {
     this.books = this.books.filter((book) => book.id !== Number(id));
-    save();
   }
-
-  
 }
 
 const bookList = new BookList();
@@ -36,7 +20,6 @@ function updateView() {
   liToRemove.forEach((item) => {
     item.remove();
   });
-  retrieve();
   bookList.books.forEach((book) => {
     const li = document.createElement('li');
     const hr = document.createElement('hr');
@@ -45,6 +28,8 @@ function updateView() {
     removeBtn.className = 'remove-btn';
     removeBtn.addEventListener('click', (ev) => {
       bookList.remove(ev.target.id);
+      localStorage.setItem('data', JSON.stringify(bookList.books));
+      this.updateView();
     });
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
@@ -62,22 +47,21 @@ function updateView() {
   });
 }
 
-function save() {
-  localStorage.setItem('data', JSON.stringify(bookList.books));
-  updateView();
-}
-
-function retrieve() {
-  bookList.books = JSON.parse(localStorage.getItem('data'));
-}
-
-updateView();
-
 const addBtn = document.getElementById('add');
 addBtn.addEventListener('click', () => {
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
   bookList.add(title, author);
+  localStorage.setItem('data', JSON.stringify(bookList.books));
+  updateView();
   document.getElementById('title').value = '';
   document.getElementById('author').value = '';
 });
+
+if (localStorage.getItem('data') === null) {
+  localStorage.setItem('data', '[]');
+}
+
+bookList.books = JSON.parse(localStorage.getItem('data'));
+
+updateView();
