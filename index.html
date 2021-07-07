@@ -6,20 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plain book</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <h1>Awesome Books</h1>
-    <ul id="books">
+  <div class="awesome-book">
+    <h1>All awesome Books</h1>
+    <ul id="books" class="books">
       
     </ul>
     <br><br>
-      <input type="text" name="title" id="title" placeholder="Title">
+    <form class="form">
+      <h2>Add a new book</h2>
+      <input type="text" class="input" name="title" id="title" placeholder="Title">
       <br>
       <br>
-      <input type="text" name='author' id="author" placeholder="Author">
+      <input type="text" class="input" name='author' id="author" placeholder="Author">
       <br>
       <br>
       <input type="button" id="add" value="add">
+    </form>
+     
+  </div>
     <script src="script.js"></script>
 </body>
 </html>

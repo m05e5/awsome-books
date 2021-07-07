@@ -16,13 +16,22 @@ const bookList = new BookList();
 
 function updateView() {
   const books = document.getElementById('books');
+  if (bookList.books.length === 0) {
+    books.classList.remove('black-border');
+  } else {
+    books.classList.add('black-border');
+  }
   const liToRemove = document.querySelectorAll('li');
   liToRemove.forEach((item) => {
     item.remove();
   });
+  let i = 0;
   bookList.books.forEach((book) => {
     const li = document.createElement('li');
-    const hr = document.createElement('hr');
+    if (i % 2 === 0) {
+      li.className = 'dark-bg';
+    }
+    i += 1;
     const removeBtn = document.createElement('input');
     removeBtn.id = book.id;
     removeBtn.className = 'remove-btn';
@@ -33,16 +42,10 @@ function updateView() {
     });
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
-    const titleBlock = document.createElement('div');
-    const title = document.createTextNode(book.title);
-    titleBlock.appendChild(title);
-    const authorBlock = document.createElement('div');
-    const author = document.createTextNode(book.author);
-    authorBlock.appendChild(author);
-    li.appendChild(titleBlock);
-    li.appendChild(authorBlock);
+    const bookBlock = document.createElement('div');
+    bookBlock.innerHTML = `"${book.title}" by ${book.author}`;
+    li.appendChild(bookBlock);
     li.appendChild(removeBtn);
-    li.appendChild(hr);
     books.appendChild(li);
   });
 }

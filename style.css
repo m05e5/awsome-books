@@ -1,5 +1,75 @@
+
 ul {
   list-style-type: none;
   padding: 1px;
   margin: 1px;
+}
+
+ul div {
+  padding: 0.3rem;
+}
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  box-sizing: border-box;
+}
+
+.awesome-book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.books {
+  width: 30%;
+}
+
+.form {
+  width: 25%;
+}
+
+.form::before {
+  display: block;
+  content: '';
+  margin: 0 auto;
+  width: 40%;
+  border-top: 2px solid black;
+}
+
+input[type='text'] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.2rem;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.dark-bg {
+  background-color: rgb(218, 218, 218);
+}
+
+.black-border,
+.remove-btn,
+#add {
+  border: 2px solid black;
+}
+
+.remove-btn,
+#add {
+  background-color: white;
+  box-shadow: 2px 2px;
+}
+
+#add {
+  float: right;
+}
+
+h2 {
+  text-align: center;
 }
