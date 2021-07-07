@@ -35,3 +35,7 @@ li {
   justify-content: space-between;
   margin: 5px;
 }
+
+.dark-bg {
+  background-color: rgb(141, 141, 141);
+}

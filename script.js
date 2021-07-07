@@ -20,8 +20,13 @@ function updateView() {
   liToRemove.forEach((item) => {
     item.remove();
   });
+  let i = 0;
   bookList.books.forEach((book) => {
     const li = document.createElement('li');
+    if(i % 2 == 0) {
+      li.className = 'dark-bg';
+    }
+    i++;
     const removeBtn = document.createElement('input');
     removeBtn.id = book.id;
     removeBtn.className = 'remove-btn';
@@ -33,10 +38,7 @@ function updateView() {
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
     const bookBlock = document.createElement('div');
-    const title = document.createTextNode(book.title);
-    const author = document.createTextNode(book.author);
-    bookBlock.appendChild(title);
-    bookBlock.appendChild(author);
+    bookBlock.innerHTML = `${book.title} by ${book.author}`;
     li.appendChild(bookBlock);
     li.appendChild(removeBtn);
     books.appendChild(li);
