@@ -16,6 +16,11 @@ const bookList = new BookList();
 
 function updateView() {
   const books = document.getElementById('books');
+  if (bookList.books.length === 0) {
+    books.classList.remove('black-border');
+  } else {
+    books.classList.add('black-border');
+  }
   const liToRemove = document.querySelectorAll('li');
   liToRemove.forEach((item) => {
     item.remove();
@@ -23,10 +28,10 @@ function updateView() {
   let i = 0;
   bookList.books.forEach((book) => {
     const li = document.createElement('li');
-    if(i % 2 == 0) {
+    if (i % 2 === 0) {
       li.className = 'dark-bg';
     }
-    i++;
+    i += 1;
     const removeBtn = document.createElement('input');
     removeBtn.id = book.id;
     removeBtn.className = 'remove-btn';
@@ -38,7 +43,7 @@ function updateView() {
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
     const bookBlock = document.createElement('div');
-    bookBlock.innerHTML = `${book.title} by ${book.author}`;
+    bookBlock.innerHTML = `"${book.title}" by ${book.author}`;
     li.appendChild(bookBlock);
     li.appendChild(removeBtn);
     books.appendChild(li);
