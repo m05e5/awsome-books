@@ -6,7 +6,7 @@ ul {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .awesome-book {
@@ -37,5 +37,11 @@ li {
 }
 
 .dark-bg {
-  background-color: rgb(141, 141, 141);
+  background-color: rgb(218, 218, 218);
+}
+
+.remove-btn {
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 2px 2px;
 }
