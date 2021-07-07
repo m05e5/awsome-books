@@ -5,10 +5,6 @@ ul {
   margin: 1px;
 }
 
-.black-border {
-  border: 2px solid black;
-}
-
 ul div {
   padding: 0.3rem;
 }
@@ -44,7 +40,6 @@ body {
 
 input[type='text'] {
   box-sizing: border-box;
-  border: 2px solid black;
   width: 100%;
   padding: 0.2rem;
 }
@@ -59,10 +54,15 @@ li {
   background-color: rgb(218, 218, 218);
 }
 
+.black-border,
+.remove-btn,
+#add {
+  border: 2px solid black;
+}
+
 .remove-btn,
 #add {
   background-color: white;
-  border: 2px solid black;
   box-shadow: 2px 2px;
 }
 
