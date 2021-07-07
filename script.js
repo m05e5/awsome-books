@@ -17,21 +17,12 @@ class BookList {
 
   add(title, author) {
     this.books.push(this.book(title, author));
-    this.save();
+    save();
   }
 
   remove(id) {
     this.books = this.books.filter((book) => book.id !== Number(id));
-    this.save();
-  }
-
-  save() {
-    localStorage.setItem('data', JSON.stringify(this.books));
-    updateView();
-  }
-
-  retrieve() {
-    this.books = JSON.parse(localStorage.getItem('data'));
+    save();
   }
 
   
@@ -45,7 +36,7 @@ function updateView() {
   liToRemove.forEach((item) => {
     item.remove();
   });
-  bookList.retrieve();
+  retrieve();
   bookList.books.forEach((book) => {
     const li = document.createElement('li');
     const hr = document.createElement('hr');
@@ -69,6 +60,15 @@ function updateView() {
     li.appendChild(hr);
     books.appendChild(li);
   });
+}
+
+function save() {
+  localStorage.setItem('data', JSON.stringify(bookList.books));
+  updateView();
+}
+
+function retrieve() {
+  bookList.books = JSON.parse(localStorage.getItem('data'));
 }
 
 updateView();
