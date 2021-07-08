@@ -44,7 +44,7 @@ input[type='text'] {
   padding: 0.2rem;
 }
 
-li {
+.books li {
   display: flex;
   justify-content: space-between;
   margin: 5px;
