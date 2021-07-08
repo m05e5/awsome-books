@@ -12,6 +12,7 @@ ul div {
 body {
   font-family: 'Varela Round', sans-serif;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 .awesome-book {
@@ -72,4 +73,31 @@ li {
 
 h2 {
   text-align: center;
+}
+
+nav,
+footer {
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 1px 2px 10px;
+  border: 2px solid black;
+  align-items: center;
+}
+
+.nav-btn {
+  background-color: white;
+  border: white;
+  padding: 5px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.nav-btn:not(:last-child) {
+  border-right: 2px solid black;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 40px);
 }
