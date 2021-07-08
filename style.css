@@ -101,3 +101,8 @@ footer {
   bottom: 0;
   width: calc(100% - 40px);
 }
+
+.date {
+  text-align: right;
+  padding-right: 0.4rem;
+}

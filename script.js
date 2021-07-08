@@ -1,3 +1,5 @@
+import { DateTime } from "./lib/luxon.js";
+
 class BookList {
   constructor() {
     this.books = [];
@@ -64,6 +66,8 @@ addBtn.addEventListener('click', () => {
 if (localStorage.getItem('data') === null) {
   localStorage.setItem('data', '[]');
 }
+
+document.querySelector('.date').innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_FULL);
 
 bookList.books = JSON.parse(localStorage.getItem('data'));
 

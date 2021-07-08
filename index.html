@@ -1,60 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plain book</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> 
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="brand">Awesome Books</div>
-      <div class="nav-links">
-        <button class="nav-btn" type="button">List</button>
-        <button class="nav-btn" type="button">Add new</button>
-        <button class="nav-btn" type="button">Contact</button>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="brand">Awesome Books</div>
+        <div class="nav-links">
+          <button class="nav-btn" type="button">List</button>
+          <button class="nav-btn" type="button">Add new</button>
+          <button class="nav-btn" type="button">Contact</button>
+        </div>
+      </nav>
+      <div class="date"></div>
+    </header>
+    <div class="awesome-book">
+      <div class="book-list">
+        <h2>All awesome Books</h2>
+        <ul id="books" class="books"></ul>
       </div>
-    </nav>
-  </header>
-  <div class="awesome-book">
-    <div class="book-list">
-      <h2>All awesome Books</h2>
-      <ul id="books" class="books">
-      </ul>
+
+      <form class="form">
+        <h2>Add a new book</h2>
+        <input
+          type="text"
+          class="input"
+          name="title"
+          id="title"
+          placeholder="Title"
+        />
+        <br />
+        <br />
+        <input
+          type="text"
+          class="input"
+          name="author"
+          id="author"
+          placeholder="Author"
+        />
+        <br />
+        <br />
+        <input type="button" id="add" value="add" />
+      </form>
+
+      <section class="contact-info">
+        <h2>Contact information</h2>
+        <p>
+          Do you have any questions or you want to say just "Hello!"? You can
+          reach out to us
+        </p>
+        <ul>
+          <li>Our email: mail@email.com</li>
+          <li>Our phone number: 2586484238424 or 2324514452</li>
+          <li>Our address: Streetname: 22, 154521 City, Country</li>
+        </ul>
+      </section>
     </div>
 
-    <form class="form">
-      <h2>Add a new book</h2>
-      <input type="text" class="input" name="title" id="title" placeholder="Title">
-      <br>
-      <br>
-      <input type="text" class="input" name='author' id="author" placeholder="Author">
-      <br>
-      <br>
-      <input type="button" id="add" value="add">
-    </form>
-
-    <section class="contact-info">
-      <h2>Contact information</h2>
-      <p>Do you have any questions or you want to say just "Hello!"? You can reach out to us</p>
-      <ul>
-        <li>Our email: mail@email.com</li>
-        <li>Our phone number: 2586484238424 or 2324514452</li>
-        <li>Our address: Streetname: 22, 154521 City, Country</li>
-      </ul>
-    </section>
-     
-  </div>
-
-  <footer>
-    <div class="brand">Copyright ...</div>
-  </footer>
-    <script src="lib/luxon.js"></script>
-    <script src="script.js"></script>
-</body>
+    <footer>
+      <div class="brand">Copyright ...</div>
+    </footer>
+    <script type="module" src="script.js"></script>
+  </body>
 </html>
