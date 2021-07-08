@@ -81,7 +81,7 @@ list.onclick = () => {
   list.style.color = 'blue';
   addNew.style.color = 'black';
   contact.style.color = 'black';
-}
+};
 
 addNew.onclick = () => {
   document.getElementById('book-list').style.display = 'none';
@@ -90,7 +90,7 @@ addNew.onclick = () => {
   list.style.color = 'black';
   addNew.style.color = 'blue';
   contact.style.color = 'black';
-}
+};
 
 contact.onclick = () => {
   document.getElementById('book-list').style.display = 'none';
@@ -99,9 +99,6 @@ contact.onclick = () => {
   list.style.color = 'black';
   addNew.style.color = 'black';
   contact.style.color = 'blue';
-}
-
-
-
+};
 
 updateView();
