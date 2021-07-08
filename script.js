@@ -1,3 +1,6 @@
+/*eslint-disable*/
+import { DateTime } from './lib/luxon.js';
+/* eslint-enable */
 class BookList {
   constructor() {
     this.books = [];
@@ -21,7 +24,7 @@ function updateView() {
   } else {
     books.classList.add('black-border');
   }
-  const liToRemove = document.querySelectorAll('li');
+  const liToRemove = document.querySelectorAll('.books li');
   liToRemove.forEach((item) => {
     item.remove();
   });
@@ -38,7 +41,7 @@ function updateView() {
     removeBtn.addEventListener('click', (ev) => {
       bookList.remove(ev.target.id);
       localStorage.setItem('data', JSON.stringify(bookList.books));
-      this.updateView();
+      updateView();
     });
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
@@ -65,6 +68,38 @@ if (localStorage.getItem('data') === null) {
   localStorage.setItem('data', '[]');
 }
 
+document.querySelector('.date').innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_FULL);
+
 bookList.books = JSON.parse(localStorage.getItem('data'));
+const list = document.getElementById('list');
+const addNew = document.getElementById('add-new');
+const contact = document.getElementById('contact');
+
+list.onclick = () => {
+  document.getElementById('book-list').style.display = 'block';
+  document.getElementById('form').style.display = 'none';
+  document.getElementById('contact-info').style.display = 'none';
+  list.style.color = 'blue';
+  addNew.style.color = 'black';
+  contact.style.color = 'black';
+};
+
+addNew.onclick = () => {
+  document.getElementById('book-list').style.display = 'none';
+  document.getElementById('form').style.display = 'block';
+  document.getElementById('contact-info').style.display = 'none';
+  list.style.color = 'black';
+  addNew.style.color = 'blue';
+  contact.style.color = 'black';
+};
+
+contact.onclick = () => {
+  document.getElementById('book-list').style.display = 'none';
+  document.getElementById('form').style.display = 'none';
+  document.getElementById('contact-info').style.display = 'block';
+  list.style.color = 'black';
+  addNew.style.color = 'black';
+  contact.style.color = 'blue';
+};
 
 updateView();

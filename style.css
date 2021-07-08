@@ -1,17 +1,21 @@
+.book-list {
+  width: 50%;
+}
 
-ul {
+.books {
   list-style-type: none;
   padding: 1px;
   margin: 1px;
 }
 
-ul div {
+.books div {
   padding: 0.3rem;
 }
 
 body {
   font-family: 'Varela Round', sans-serif;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 .awesome-book {
@@ -22,20 +26,13 @@ body {
   width: 100%;
 }
 
-.books {
-  width: 30%;
-}
-
 .form {
   width: 25%;
 }
 
-.form::before {
-  display: block;
-  content: '';
-  margin: 0 auto;
-  width: 40%;
-  border-top: 2px solid black;
+#form,
+#contact-info {
+  display: none;
 }
 
 input[type='text'] {
@@ -44,7 +41,7 @@ input[type='text'] {
   padding: 0.2rem;
 }
 
-li {
+.books li {
   display: flex;
   justify-content: space-between;
   margin: 5px;
@@ -56,7 +53,8 @@ li {
 
 .black-border,
 .remove-btn,
-#add {
+#add,
+input[type='text'] {
   border: 2px solid black;
 }
 
@@ -72,4 +70,41 @@ li {
 
 h2 {
   text-align: center;
+}
+
+nav,
+footer {
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 1px 2px 10px;
+  border: 2px solid black;
+  align-items: center;
+}
+
+.nav-btn {
+  background-color: white;
+  border: white;
+  padding: 5px;
+  font-family: 'Varela Round', sans-serif;
+  cursor: pointer;
+}
+
+.nav-btn:not(:last-child) {
+  border-right: 2px solid black;
+}
+
+.nav-btn:nth-child(1) {
+  color: blue;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 40px);
+}
+
+.date {
+  text-align: right;
+  padding-right: 0.4rem;
 }
