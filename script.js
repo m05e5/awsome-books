@@ -21,7 +21,7 @@ function updateView() {
   } else {
     books.classList.add('black-border');
   }
-  const liToRemove = document.querySelectorAll('li');
+  const liToRemove = document.querySelectorAll('.books li');
   liToRemove.forEach((item) => {
     item.remove();
   });

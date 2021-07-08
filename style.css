@@ -1,11 +1,14 @@
+.book-list {
+  width: 50%;
+}
 
-ul {
+.books {
   list-style-type: none;
   padding: 1px;
   margin: 1px;
 }
 
-ul div {
+.books div {
   padding: 0.3rem;
 }
 
@@ -21,10 +24,6 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-
-.books {
-  width: 30%;
 }
 
 .form {
@@ -57,7 +56,8 @@ li {
 
 .black-border,
 .remove-btn,
-#add {
+#add,
+input[type='text'] {
   border: 2px solid black;
 }
 
