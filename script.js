@@ -1,4 +1,4 @@
-import { DateTime } from './lib/luxon.js';
+import { DateTime } from 'https://moment.github.io/luxon/es6/luxon.min.js';
 
 class BookList {
   constructor() {
