@@ -40,7 +40,7 @@ function updateView() {
     removeBtn.addEventListener('click', (ev) => {
       bookList.remove(ev.target.id);
       localStorage.setItem('data', JSON.stringify(bookList.books));
-      this.updateView();
+      updateView();
     });
     removeBtn.setAttribute('type', 'button');
     removeBtn.setAttribute('value', 'Remove');
