@@ -18,20 +18,20 @@
       <nav>
         <div class="brand">Awesome Books</div>
         <div class="nav-links">
-          <button class="nav-btn" type="button">List</button>
-          <button class="nav-btn" type="button">Add new</button>
-          <button class="nav-btn" type="button">Contact</button>
+          <button id="list" class="nav-btn" type="button">List</button>
+          <button id="add-new" class="nav-btn" type="button">Add new</button>
+          <button id="contact" class="nav-btn" type="button">Contact</button>
         </div>
       </nav>
       <div class="date"></div>
     </header>
     <div class="awesome-book">
-      <div class="book-list">
+      <section class="book-list" id="book-list">
         <h2>All awesome Books</h2>
         <ul id="books" class="books"></ul>
-      </div>
+      </section>
 
-      <form class="form">
+      <form class="form" id="form">
         <h2>Add a new book</h2>
         <input
           type="text"
@@ -54,7 +54,7 @@
         <input type="button" id="add" value="add" />
       </form>
 
-      <section class="contact-info">
+      <section class="contact-info" id="contact-info">
         <h2>Contact information</h2>
         <p>
           Do you have any questions or you want to say just "Hello!"? You can
