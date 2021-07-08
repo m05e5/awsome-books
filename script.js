@@ -1,5 +1,6 @@
-import { DateTime } from 'https://moment.github.io/luxon/es6/luxon.min.js';
-
+/*eslint-disable*/
+import { DateTime } from './lib/luxon.js';
+/* eslint-enable */
 class BookList {
   constructor() {
     this.books = [];
